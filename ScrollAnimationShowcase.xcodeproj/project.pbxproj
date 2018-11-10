@@ -14,6 +14,11 @@
 		DE1C6E4A21959F8000BAA03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1C6E4821959F8000BAA03C /* LaunchScreen.storyboard */; };
 		DE1C6E5521959F8100BAA03C /* ScrollAnimationShowcaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E5421959F8100BAA03C /* ScrollAnimationShowcaseTests.swift */; };
 		DE1C6E6021959F8100BAA03C /* ScrollAnimationShowcaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E5F21959F8100BAA03C /* ScrollAnimationShowcaseUITests.swift */; };
+		DE1C6E782195AD4600BAA03C /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E772195AD4600BAA03C /* UIViewControllerExtension.swift */; };
+		DE1C6E7A2196571200BAA03C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E792196571200BAA03C /* UIColorExtension.swift */; };
+		DE1C6E7C2196573C00BAA03C /* NSObjectProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7B2196573C00BAA03C /* NSObjectProtocolExtension.swift */; };
+		DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */; };
+		DE1C6E8021965ED700BAA03C /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		DE1C6E5B21959F8100BAA03C /* ScrollAnimationShowcaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollAnimationShowcaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE1C6E5F21959F8100BAA03C /* ScrollAnimationShowcaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollAnimationShowcaseUITests.swift; sourceTree = "<group>"; };
 		DE1C6E6121959F8100BAA03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE1C6E772195AD4600BAA03C /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		DE1C6E792196571200BAA03C /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		DE1C6E7B2196573C00BAA03C /* NSObjectProtocolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectProtocolExtension.swift; sourceTree = "<group>"; };
+		DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +182,11 @@
 		DE1C6E722195A4D100BAA03C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E7B2196573C00BAA03C /* NSObjectProtocolExtension.swift */,
+				DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */,
+				DE1C6E792196571200BAA03C /* UIColorExtension.swift */,
+				DE1C6E772195AD4600BAA03C /* UIViewControllerExtension.swift */,
+				DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -338,6 +353,11 @@
 			files = (
 				DE1C6E4221959F7900BAA03C /* MainViewController.swift in Sources */,
 				DE1C6E4021959F7900BAA03C /* AppDelegate.swift in Sources */,
+				DE1C6E782195AD4600BAA03C /* UIViewControllerExtension.swift in Sources */,
+				DE1C6E7A2196571200BAA03C /* UIColorExtension.swift in Sources */,
+				DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */,
+				DE1C6E7C2196573C00BAA03C /* NSObjectProtocolExtension.swift in Sources */,
+				DE1C6E8021965ED700BAA03C /* UITableViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
