@@ -22,6 +22,7 @@
 		DE1C6E8221965FFA00BAA03C /* CustomViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */; };
 		DE1C6E88219667FA00BAA03C /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1C6E86219667FA00BAA03C /* Article.storyboard */; };
 		DE1C6E8A2196681D00BAA03C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E892196681D00BAA03C /* ArticleViewController.swift */; };
+		DE1C6E8F2196721F00BAA03C /* CategoryScrollTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E8E2196721F00BAA03C /* CategoryScrollTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewBase.swift; sourceTree = "<group>"; };
 		DE1C6E87219667FA00BAA03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		DE1C6E892196681D00BAA03C /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		DE1C6E8E2196721F00BAA03C /* CategoryScrollTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScrollTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 		DE1C6E752195A50200BAA03C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E902196759000BAA03C /* CategoryScrollTabCell */,
 				DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */,
 			);
 			path = View;
@@ -232,6 +235,7 @@
 		DE1C6E8B219670B000BAA03C /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E8D219671F100BAA03C /* ScrollTab */,
 				DE1C6E892196681D00BAA03C /* ArticleViewController.swift */,
 			);
 			path = Article;
@@ -243,6 +247,21 @@
 				DE1C6E4121959F7900BAA03C /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DE1C6E8D219671F100BAA03C /* ScrollTab */ = {
+			isa = PBXGroup;
+			children = (
+				DE1C6E8E2196721F00BAA03C /* CategoryScrollTabViewController.swift */,
+			);
+			path = ScrollTab;
+			sourceTree = "<group>";
+		};
+		DE1C6E902196759000BAA03C /* CategoryScrollTabCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CategoryScrollTabCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +402,7 @@
 				DE1C6E782195AD4600BAA03C /* UIViewControllerExtension.swift in Sources */,
 				DE1C6E8A2196681D00BAA03C /* ArticleViewController.swift in Sources */,
 				DE1C6E7A2196571200BAA03C /* UIColorExtension.swift in Sources */,
+				DE1C6E8F2196721F00BAA03C /* CategoryScrollTabViewController.swift in Sources */,
 				DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */,
 				DE1C6E7C2196573C00BAA03C /* NSObjectProtocolExtension.swift in Sources */,
 				DE1C6E8021965ED700BAA03C /* UITableViewExtension.swift in Sources */,
