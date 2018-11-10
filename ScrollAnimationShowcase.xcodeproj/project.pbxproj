@@ -19,6 +19,7 @@
 		DE1C6E7C2196573C00BAA03C /* NSObjectProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7B2196573C00BAA03C /* NSObjectProtocolExtension.swift */; };
 		DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */; };
 		DE1C6E8021965ED700BAA03C /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */; };
+		DE1C6E8221965FFA00BAA03C /* CustomViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		DE1C6E7B2196573C00BAA03C /* NSObjectProtocolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectProtocolExtension.swift; sourceTree = "<group>"; };
 		DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 		DE1C6E752195A50200BAA03C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1C6E8221965FFA00BAA03C /* CustomViewBase.swift in Sources */,
 				DE1C6E4221959F7900BAA03C /* MainViewController.swift in Sources */,
 				DE1C6E4021959F7900BAA03C /* AppDelegate.swift in Sources */,
 				DE1C6E782195AD4600BAA03C /* UIViewControllerExtension.swift in Sources */,
