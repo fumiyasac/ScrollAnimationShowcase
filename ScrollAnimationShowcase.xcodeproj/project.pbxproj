@@ -223,10 +223,26 @@
 		DE1C6E762195A50800BAA03C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DE1C6E892196681D00BAA03C /* ArticleViewController.swift */,
-				DE1C6E4121959F7900BAA03C /* MainViewController.swift */,
+				DE1C6E8B219670B000BAA03C /* Article */,
+				DE1C6E8C219670BD00BAA03C /* Main */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DE1C6E8B219670B000BAA03C /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				DE1C6E892196681D00BAA03C /* ArticleViewController.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		DE1C6E8C219670BD00BAA03C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE1C6E4121959F7900BAA03C /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
