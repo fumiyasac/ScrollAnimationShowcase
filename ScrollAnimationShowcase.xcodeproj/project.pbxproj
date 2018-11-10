@@ -20,6 +20,8 @@
 		DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */; };
 		DE1C6E8021965ED700BAA03C /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */; };
 		DE1C6E8221965FFA00BAA03C /* CustomViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */; };
+		DE1C6E88219667FA00BAA03C /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1C6E86219667FA00BAA03C /* Article.storyboard */; };
+		DE1C6E8A2196681D00BAA03C /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E892196681D00BAA03C /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		DE1C6E7D219657A300BAA03C /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		DE1C6E7F21965ED700BAA03C /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewBase.swift; sourceTree = "<group>"; };
+		DE1C6E87219667FA00BAA03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
+		DE1C6E892196681D00BAA03C /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 		DE1C6E702195A47200BAA03C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E86219667FA00BAA03C /* Article.storyboard */,
 				DE1C6E4821959F8000BAA03C /* LaunchScreen.storyboard */,
 				DE1C6E4321959F7900BAA03C /* Main.storyboard */,
 			);
@@ -218,6 +223,7 @@
 		DE1C6E762195A50800BAA03C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E892196681D00BAA03C /* ArticleViewController.swift */,
 				DE1C6E4121959F7900BAA03C /* MainViewController.swift */,
 			);
 			path = ViewController;
@@ -328,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1C6E4A21959F8000BAA03C /* LaunchScreen.storyboard in Resources */,
+				DE1C6E88219667FA00BAA03C /* Article.storyboard in Resources */,
 				DE1C6E4721959F8000BAA03C /* Assets.xcassets in Resources */,
 				DE1C6E4521959F7900BAA03C /* Main.storyboard in Resources */,
 			);
@@ -358,6 +365,7 @@
 				DE1C6E4221959F7900BAA03C /* MainViewController.swift in Sources */,
 				DE1C6E4021959F7900BAA03C /* AppDelegate.swift in Sources */,
 				DE1C6E782195AD4600BAA03C /* UIViewControllerExtension.swift in Sources */,
+				DE1C6E8A2196681D00BAA03C /* ArticleViewController.swift in Sources */,
 				DE1C6E7A2196571200BAA03C /* UIColorExtension.swift in Sources */,
 				DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */,
 				DE1C6E7C2196573C00BAA03C /* NSObjectProtocolExtension.swift in Sources */,
@@ -411,6 +419,14 @@
 				DE1C6E4921959F8000BAA03C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DE1C6E86219667FA00BAA03C /* Article.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE1C6E87219667FA00BAA03C /* Base */,
+			);
+			name = Article.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
