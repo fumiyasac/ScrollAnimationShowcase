@@ -94,20 +94,31 @@
                                     <constraint firstAttribute="height" constant="0.5" id="1EB-N9-AF3"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDz-be-vcO">
+                                <rect key="frame" x="112.5" y="45" width="150" height="3"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="AiP-rg-MSm"/>
+                                    <constraint firstAttribute="width" constant="150" id="FVk-ld-xI4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kcJ-co-t71" firstAttribute="leading" secondItem="QXg-qv-Ez5" secondAttribute="leading" id="CEV-7Z-QXY"/>
                             <constraint firstAttribute="trailing" secondItem="kcJ-co-t71" secondAttribute="trailing" id="Nx9-SE-Nv3"/>
                             <constraint firstAttribute="bottom" secondItem="Gfs-DM-fGq" secondAttribute="bottom" id="NyM-3a-9oR"/>
+                            <constraint firstItem="nDz-be-vcO" firstAttribute="bottom" secondItem="QXg-qv-Ez5" secondAttribute="bottomMargin" id="Q5P-nw-MDg"/>
                             <constraint firstAttribute="trailing" secondItem="Gfs-DM-fGq" secondAttribute="trailing" id="XrH-eD-6RV"/>
                             <constraint firstItem="Gfs-DM-fGq" firstAttribute="leading" secondItem="QXg-qv-Ez5" secondAttribute="leading" id="bZ5-PL-VVv"/>
+                            <constraint firstItem="nDz-be-vcO" firstAttribute="centerX" secondItem="QXg-qv-Ez5" secondAttribute="centerX" id="dRD-WN-37k"/>
                             <constraint firstItem="kcJ-co-t71" firstAttribute="bottom" secondItem="QXg-qv-Ez5" secondAttribute="bottomMargin" id="gHs-9l-uYj"/>
                             <constraint firstItem="Gfs-DM-fGq" firstAttribute="top" secondItem="QXg-qv-Ez5" secondAttribute="top" id="skt-Fj-af0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="categoryScrollTabCollectionView" destination="Gfs-DM-fGq" id="Txy-ke-iOS"/>
+                        <outlet property="selectedCatogoryUnderlineWidth" destination="FVk-ld-xI4" id="Cpg-Qh-94C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKd-xv-XvU" userLabel="First Responder" sceneMemberID="firstResponder"/>

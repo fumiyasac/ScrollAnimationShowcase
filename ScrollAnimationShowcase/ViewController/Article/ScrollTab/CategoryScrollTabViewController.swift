@@ -12,12 +12,12 @@ final class CategoryScrollTabViewController: UIViewController {
 
     // テスト用のサンプルデータ
     private let dataMock: [String] = [
-        "サンプルその1",
-        "サンプルその2",
-        "サンプルその3",
-        "サンプルその4",
-        "サンプルその5",
-        "サンプルその6",
+        "今日のおやつ",
+        "週3で通いたい店",
+        "お母さんと一緒",
+        "ミートクロケット",
+        "食後のコーヒー",
+        "明日はカツ丼",
     ]
 
     // 配置したセル幅の合計値
@@ -26,6 +26,7 @@ final class CategoryScrollTabViewController: UIViewController {
     // 現在選択中のインデックス値を格納する変数
     private var currentSelectIndex = 0
 
+    @IBOutlet weak private var selectedCatogoryUnderlineWidth: NSLayoutConstraint!
     @IBOutlet weak private var categoryScrollTabCollectionView: UICollectionView!
 
     // MARK: - Override
@@ -39,7 +40,7 @@ final class CategoryScrollTabViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        setInitialCategoryScrollTabPositionIfNeeded()
+        setInitialCategoryScrollTabPosition()
     }
 
     // MARK: - Private Function
@@ -51,15 +52,31 @@ final class CategoryScrollTabViewController: UIViewController {
         categoryScrollTabCollectionView.showsHorizontalScrollIndicator = false
     }
 
-    private func setInitialCategoryScrollTabPositionIfNeeded() {
+    private func setInitialCategoryScrollTabPosition() {
 
         // 押下した場所のインデックス値を持っておくために、実際のタブ個数の2倍の値を設定する
         currentSelectIndex = self.dataMock.count * 2
-        print("現在のインデックス値:", currentSelectIndex)
+        //print("現在のインデックス値:", currentSelectIndex)
 
-        // インデックス値が0相当のタブを真ん中に表示させる
+        // 変数:currentSelectIndexを基準にして位置情報を更新する
+        updateCategoryScrollTabCollectionViewPosition(withAnimated: false)
+    }
+
+    // 選択もしくはスクロールが止まるであろう位置にあるセルのインデックス値を元にUICollectionViewの位置を更新する
+    private func updateCategoryScrollTabCollectionViewPosition(withAnimated: Bool = false) {
+        // インデックス値に相当するタブを真ん中に表示させる
         let targetIndexPath = IndexPath(row: currentSelectIndex, section: 0)
-        categoryScrollTabCollectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: false)
+        categoryScrollTabCollectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: withAnimated)
+        // UICollectionViewの下線の長さを設定する
+        setUnderlineWidthFrom(categoryTitle: dataMock[currentSelectIndex % dataMock.count])
+    }
+    
+    private func setUnderlineWidthFrom(categoryTitle: String) {
+        let targetWidth = CategoryScrollTabViewCell.calculateCategoryUnderBarWidthBy(title: categoryTitle)
+        selectedCatogoryUnderlineWidth.constant = targetWidth
+        UIView.animate(withDuration: 0.36, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
 }
 
@@ -88,11 +105,10 @@ extension CategoryScrollTabViewController: UICollectionViewDataSource {
 
         // 押下した場所のインデックス値を持っておく
         currentSelectIndex = indexPath.row
-        print("現在のインデックス値:", currentSelectIndex)
+        //print("現在のインデックス値:", currentSelectIndex)
 
-        // インデックス値を元に所定位置まで動かす
-        let targetIndexPath = IndexPath(row: currentSelectIndex, section: 0)
-        collectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: true)
+        // 変数:currentSelectIndexを基準にして位置情報を更新する
+        updateCategoryScrollTabCollectionViewPosition(withAnimated: true)
     }
 }
 
@@ -122,5 +138,22 @@ extension CategoryScrollTabViewController: UIScrollViewDelegate {
         if (scrollView.contentOffset.x <= allTabViewTotalWidth) || (scrollView.contentOffset.x > allTabViewTotalWidth * 3.0) {
             scrollView.contentOffset.x = allTabViewTotalWidth * 2.0
         }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        // スクロールが停止した際に見えているセルのインデックス値を格納する
+        var visibleIndexPathList: [IndexPath] = []
+        for cell in categoryScrollTabCollectionView.visibleCells {
+            if let visibleIndexPath = categoryScrollTabCollectionView.indexPath(for: cell) {
+                //print("見えているセルのインデックス値:", visibleIndexPath)
+                visibleIndexPathList.append(visibleIndexPath)
+            }
+        }
+        currentSelectIndex = visibleIndexPathList[1].row
+        //print("現在のインデックス値:", currentSelectIndex)
+
+        // 変数:currentSelectIndexを基準にして位置情報を更新する
+        updateCategoryScrollTabCollectionViewPosition(withAnimated: true)
     }
 }
