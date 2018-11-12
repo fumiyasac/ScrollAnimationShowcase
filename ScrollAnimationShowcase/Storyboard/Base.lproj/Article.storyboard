@@ -79,7 +79,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gfs-DM-fGq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Nh-mb-ePg">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Nh-mb-ePg" customClass="CategoryScrollTabViewFlowLayout" customModule="ScrollAnimationShowcase" customModuleProvider="target">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -87,15 +87,28 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcJ-co-t71">
+                                <rect key="frame" x="0.0" y="47.5" width="375" height="0.5"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="1EB-N9-AF3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kcJ-co-t71" firstAttribute="leading" secondItem="QXg-qv-Ez5" secondAttribute="leading" id="CEV-7Z-QXY"/>
+                            <constraint firstAttribute="trailing" secondItem="kcJ-co-t71" secondAttribute="trailing" id="Nx9-SE-Nv3"/>
                             <constraint firstAttribute="bottom" secondItem="Gfs-DM-fGq" secondAttribute="bottom" id="NyM-3a-9oR"/>
                             <constraint firstAttribute="trailing" secondItem="Gfs-DM-fGq" secondAttribute="trailing" id="XrH-eD-6RV"/>
                             <constraint firstItem="Gfs-DM-fGq" firstAttribute="leading" secondItem="QXg-qv-Ez5" secondAttribute="leading" id="bZ5-PL-VVv"/>
+                            <constraint firstItem="kcJ-co-t71" firstAttribute="bottom" secondItem="QXg-qv-Ez5" secondAttribute="bottomMargin" id="gHs-9l-uYj"/>
                             <constraint firstItem="Gfs-DM-fGq" firstAttribute="top" secondItem="QXg-qv-Ez5" secondAttribute="top" id="skt-Fj-af0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryScrollTabCollectionView" destination="Gfs-DM-fGq" id="Txy-ke-iOS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKd-xv-XvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
