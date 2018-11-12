@@ -64,13 +64,19 @@ final class CategoryScrollTabViewController: UIViewController {
 
     // 選択もしくはスクロールが止まるであろう位置にあるセルのインデックス値を元にUICollectionViewの位置を更新する
     private func updateCategoryScrollTabCollectionViewPosition(withAnimated: Bool = false) {
+
         // インデックス値に相当するタブを真ん中に表示させる
         let targetIndexPath = IndexPath(row: currentSelectIndex, section: 0)
         categoryScrollTabCollectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: withAnimated)
+
         // UICollectionViewの下線の長さを設定する
         setUnderlineWidthFrom(categoryTitle: dataMock[currentSelectIndex % dataMock.count])
+
+        // 現在選択されている位置に色を付けるためにCollectionViewをリロードする
+        categoryScrollTabCollectionView.reloadData()
     }
-    
+
+    // スクロールするタブ
     private func setUnderlineWidthFrom(categoryTitle: String) {
         let targetWidth = CategoryScrollTabViewCell.calculateCategoryUnderBarWidthBy(title: categoryTitle)
         selectedCatogoryUnderlineWidth.constant = targetWidth
@@ -97,7 +103,8 @@ extension CategoryScrollTabViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCustomCell(with: CategoryScrollTabViewCell.self, indexPath: indexPath)
         let targetIndex = indexPath.row % dataMock.count
-        cell.setCategory(name: dataMock[targetIndex])
+        let isSelectedTab = (indexPath.row % dataMock.count == currentSelectIndex % dataMock.count)
+        cell.setCategory(name: dataMock[targetIndex], isSelected: isSelectedTab)
         return cell
     }
 
@@ -146,8 +153,8 @@ extension CategoryScrollTabViewController: UIScrollViewDelegate {
         var visibleIndexPathList: [IndexPath] = []
         for cell in categoryScrollTabCollectionView.visibleCells {
             if let visibleIndexPath = categoryScrollTabCollectionView.indexPath(for: cell) {
-                //print("見えているセルのインデックス値:", visibleIndexPath)
                 visibleIndexPathList.append(visibleIndexPath)
+                //print("見えているセルのインデックス値:", visibleIndexPath)
             }
         }
         currentSelectIndex = visibleIndexPathList[1].row

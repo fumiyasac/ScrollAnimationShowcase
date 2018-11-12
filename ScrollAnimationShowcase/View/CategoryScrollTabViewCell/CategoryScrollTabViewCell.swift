@@ -46,7 +46,8 @@ final class CategoryScrollTabViewCell: UICollectionViewCell {
 
     // MARK: - Function
 
-    func setCategory(name: String) {
+    func setCategory(name: String, isSelected: Bool = false) {
         categoryTitleLabel.text = name
+        categoryTitleLabel.textColor = isSelected ? UIColor.init(code: "#ff6060") : UIColor.gray
     }
 }
