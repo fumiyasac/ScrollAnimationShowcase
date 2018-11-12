@@ -95,10 +95,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDz-be-vcO">
-                                <rect key="frame" x="112.5" y="45" width="150" height="3"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="112.5" y="46" width="150" height="2"/>
+                                <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="AiP-rg-MSm"/>
+                                    <constraint firstAttribute="height" constant="2" id="AiP-rg-MSm"/>
                                     <constraint firstAttribute="width" constant="150" id="FVk-ld-xI4"/>
                                 </constraints>
                             </view>
