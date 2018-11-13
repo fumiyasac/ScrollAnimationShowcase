@@ -27,6 +27,8 @@
 		DE1C6E9521967F9800BAA03C /* CategoryScrollTabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E9321967F9800BAA03C /* CategoryScrollTabViewCell.swift */; };
 		DE1C6E9621967F9800BAA03C /* CategoryScrollTabViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1C6E9421967F9800BAA03C /* CategoryScrollTabViewCell.xib */; };
 		DE1C6E992196C79300BAA03C /* CategoryScrollTabViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E982196C79300BAA03C /* CategoryScrollTabViewFlowLayout.swift */; };
+		DE1C6EA02199D4F800BAA03C /* ScrollContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6E9F2199D4F800BAA03C /* ScrollContentsViewController.swift */; };
+		DE1C6EA22199DDE700BAA03C /* ArticleCategoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6EA12199DDE700BAA03C /* ArticleCategoryMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		DE1C6E9321967F9800BAA03C /* CategoryScrollTabViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScrollTabViewCell.swift; sourceTree = "<group>"; };
 		DE1C6E9421967F9800BAA03C /* CategoryScrollTabViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryScrollTabViewCell.xib; sourceTree = "<group>"; };
 		DE1C6E982196C79300BAA03C /* CategoryScrollTabViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScrollTabViewFlowLayout.swift; sourceTree = "<group>"; };
+		DE1C6E9F2199D4F800BAA03C /* ScrollContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollContentsViewController.swift; sourceTree = "<group>"; };
+		DE1C6EA12199DDE700BAA03C /* ArticleCategoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +250,7 @@
 		DE1C6E8B219670B000BAA03C /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6E9E2199D49000BAA03C /* ScrollContents */,
 				DE1C6E8D219671F100BAA03C /* ScrollTab */,
 				DE1C6E892196681D00BAA03C /* ArticleViewController.swift */,
 			);
@@ -297,6 +302,7 @@
 		DE1C6E9C21995F0300BAA03C /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C6EA12199DDE700BAA03C /* ArticleCategoryMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -306,6 +312,14 @@
 			children = (
 			);
 			path = Stub;
+			sourceTree = "<group>";
+		};
+		DE1C6E9E2199D49000BAA03C /* ScrollContents */ = {
+			isa = PBXGroup;
+			children = (
+				DE1C6E9F2199D4F800BAA03C /* ScrollContentsViewController.swift */,
+			);
+			path = ScrollContents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,8 +460,10 @@
 				DE1C6E4221959F7900BAA03C /* MainViewController.swift in Sources */,
 				DE1C6E4021959F7900BAA03C /* AppDelegate.swift in Sources */,
 				DE1C6E782195AD4600BAA03C /* UIViewControllerExtension.swift in Sources */,
+				DE1C6EA22199DDE700BAA03C /* ArticleCategoryMock.swift in Sources */,
 				DE1C6E8A2196681D00BAA03C /* ArticleViewController.swift in Sources */,
 				DE1C6E7A2196571200BAA03C /* UIColorExtension.swift in Sources */,
+				DE1C6EA02199D4F800BAA03C /* ScrollContentsViewController.swift in Sources */,
 				DE1C6E8F2196721F00BAA03C /* CategoryScrollTabViewController.swift in Sources */,
 				DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */,
 				DE1C6E9521967F9800BAA03C /* CategoryScrollTabViewCell.swift in Sources */,

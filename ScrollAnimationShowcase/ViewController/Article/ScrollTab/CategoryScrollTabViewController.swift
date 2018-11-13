@@ -10,15 +10,8 @@ import UIKit
 
 final class CategoryScrollTabViewController: UIViewController {
 
-    // テスト用のサンプルデータ
-    private let dataMock: [String] = [
-        "今日のおやつ",
-        "週3で通いたい店",
-        "お母さんと一緒",
-        "ミートクロケット",
-        "食後のコーヒー",
-        "明日はカツ丼",
-    ]
+    // カテゴリーの一覧データ
+    private let categoryList: [String] = ArticleCategoryMock.getArticleCategory()
 
     // 配置したセル幅の合計値
     private var allTabViewTotalWidth: CGFloat = 0.0
@@ -55,7 +48,7 @@ final class CategoryScrollTabViewController: UIViewController {
     private func setInitialCategoryScrollTabPosition() {
 
         // 押下した場所のインデックス値を持っておくために、実際のタブ個数の2倍の値を設定する
-        currentSelectIndex = self.dataMock.count * 2
+        currentSelectIndex = self.categoryList.count * 2
         //print("現在のインデックス値:", currentSelectIndex)
 
         // 変数:currentSelectIndexを基準にして位置情報を更新する
@@ -70,7 +63,8 @@ final class CategoryScrollTabViewController: UIViewController {
         categoryScrollTabCollectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: withAnimated)
 
         // UICollectionViewの下線の長さを設定する
-        setUnderlineWidthFrom(categoryTitle: dataMock[currentSelectIndex % dataMock.count])
+        let categoryListIndex = currentSelectIndex % categoryList.count
+        setUnderlineWidthFrom(categoryTitle: categoryList[categoryListIndex])
 
         // 現在選択されている位置に色を付けるためにCollectionViewをリロードする
         categoryScrollTabCollectionView.reloadData()
@@ -97,14 +91,14 @@ extension CategoryScrollTabViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         // MEMO: 無限スクロールの対象とする場合はタブ表示要素の4倍余分に要素を表示する
-        return dataMock.count * 4
+        return categoryList.count * 4
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCustomCell(with: CategoryScrollTabViewCell.self, indexPath: indexPath)
-        let targetIndex = indexPath.row % dataMock.count
-        let isSelectedTab = (indexPath.row % dataMock.count == currentSelectIndex % dataMock.count)
-        cell.setCategory(name: dataMock[targetIndex], isSelected: isSelectedTab)
+        let targetIndex = indexPath.row % categoryList.count
+        let isSelectedTab = (indexPath.row % categoryList.count == currentSelectIndex % categoryList.count)
+        cell.setCategory(name: categoryList[targetIndex], isSelected: isSelectedTab)
         return cell
     }
 
