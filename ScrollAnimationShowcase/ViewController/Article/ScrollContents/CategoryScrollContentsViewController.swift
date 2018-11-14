@@ -1,5 +1,5 @@
 //
-//  ScrollContentsViewController.swift
+//  CategoryContentsViewController.swift
 //  ScrollAnimationShowcase
 //
 //  Created by 酒井文也 on 2018/11/13.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScrollContentsViewController: UIViewController {
+class CategoryScrollContentsViewController: UIViewController {
 
     // MEMO: 後に実際のものに差し替える
 

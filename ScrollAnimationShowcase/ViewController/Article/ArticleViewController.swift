@@ -15,17 +15,33 @@ class ArticleViewController: UIViewController {
 
     // 現在表示しているViewControllerのタグ番号
     private var currentCategoryIndex: Int = 0
-
+    
     // ページングして表示させるViewControllerを保持する配列
     private var targetViewControllerLists: [UIViewController] = []
 
     // ContainerViewにEmbedしたUIPageViewControllerのインスタンスを保持する
     private var pageViewController: UIPageViewController?
 
+    // MARK: - Override
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupPageViewController()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+
+        // ContainerViewで接続されたViewController側に定義したプロトコルを適用する
+        case "CategoryScrollTabViewContainer":
+            let vc = segue.destination as! CategoryScrollTabViewController
+            vc.delegate = self
+
+        default:
+            break
+        }
     }
 
     // MARK: - Private Function
@@ -35,16 +51,16 @@ class ArticleViewController: UIViewController {
         // UIPageViewControllerで表示させるViewControllerの一覧を配列へ格納する
         let _ = categoryList.enumerated().map{ (index, categoryName) in
             let sb = UIStoryboard(name: "Article", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "ScrollContents") as! ScrollContentsViewController
+            let vc = sb.instantiateViewController(withIdentifier: "CategoryScrollContents") as! CategoryScrollContentsViewController
             vc.view.tag = index
             vc.setTitle(text: categoryName)
             targetViewControllerLists.append(vc)
         }
 
         // ContainerViewにEmbedしたUIPageViewControllerを取得する
-        for childViewController in children {
-            if let targetPageViewController = childViewController as? UIPageViewController {
-                pageViewController = targetPageViewController
+        for childVC in children {
+            if let targetVC = childVC as? UIPageViewController {
+                pageViewController = targetVC
             }
         }
         
@@ -54,6 +70,15 @@ class ArticleViewController: UIViewController {
         
         // 最初に表示する画面として配列の先頭のViewControllerを設定する
         pageViewController!.setViewControllers([targetViewControllerLists[0]], direction: .forward, animated: false, completion: nil)
+    }
+
+    //
+    private func updateCategoryScrollTabPosition(isIncrement: Bool) {
+        for childVC in children {
+            if let targetVC = childVC as? CategoryScrollTabViewController {
+                targetVC.moveToCategoryScrollTab(isIncrement: isIncrement)
+            }
+        }
     }
 }
 
@@ -73,6 +98,17 @@ extension ArticleViewController: UIPageViewControllerDelegate {
         // ここから先はUIPageViewControllerのスワイプアニメーション完了時に発動する
         if let targetViewControllers = pageViewController.viewControllers {
             if let targetViewController = targetViewControllers.last {
+
+                //
+                if targetViewController.view.tag - currentCategoryIndex == -categoryList.count + 1 {
+                    updateCategoryScrollTabPosition(isIncrement: true)
+                } else if targetViewController.view.tag - currentCategoryIndex == categoryList.count - 1 {
+                    updateCategoryScrollTabPosition(isIncrement: false)
+                } else if targetViewController.view.tag - currentCategoryIndex > 0 {
+                    updateCategoryScrollTabPosition(isIncrement: true)
+                } else if targetViewController.view.tag - currentCategoryIndex < 0 {
+                    updateCategoryScrollTabPosition(isIncrement: false)
+                }
 
                 // 受け取ったインデックス値を元にコンテンツ表示を更新する
                 currentCategoryIndex = targetViewController.view.tag
@@ -115,5 +151,20 @@ extension ArticleViewController: UIPageViewControllerDataSource {
         } else {
             return targetViewControllerLists[index + 1]
         }
+    }
+}
+
+// MARK: - CategoryScrollTabDelegate
+
+extension ArticleViewController: CategoryScrollTabDelegate {
+
+    // タブ側のViewControllerで選択されたインデックス値とスクロール方向を元に表示する位置を調整する
+    func moveToCategoryScrollContents(selectedCollectionViewIndex: Int, targetDirection: UIPageViewController.NavigationDirection, withAnimated: Bool) {
+
+        //
+        currentCategoryIndex = selectedCollectionViewIndex % categoryList.count
+        
+        //
+        pageViewController!.setViewControllers([targetViewControllerLists[currentCategoryIndex]], direction: targetDirection, animated: withAnimated, completion: nil)
     }
 }

@@ -8,19 +8,46 @@
 
 import UIKit
 
-final class CategoryScrollTabViewController: UIViewController {
+// カテゴリータブ操作時に実行されるプロトコル
+protocol CategoryScrollTabDelegate: NSObjectProtocol {
 
+    // UIPageViewControllerで表示しているインデックスの画面へ遷移する
+    func moveToCategoryScrollContents(selectedCollectionViewIndex: Int, targetDirection: UIPageViewController.NavigationDirection, withAnimated: Bool)
+}
+
+class CategoryScrollTabViewController: UIViewController {
+
+    //
+    weak var delegate: CategoryScrollTabDelegate?
+    
     // カテゴリーの一覧データ
     private let categoryList: [String] = ArticleCategoryMock.getArticleCategory()
 
     // 配置したセル幅の合計値
     private var allTabViewTotalWidth: CGFloat = 0.0
 
-    // 現在選択中のインデックス値を格納する変数
+    // 現在選択中のインデックス値を格納する変数(このクラスに配置しているUICollectionViewのIndex番号)
     private var currentSelectIndex = 0
 
     @IBOutlet weak private var selectedCatogoryUnderlineWidth: NSLayoutConstraint!
     @IBOutlet weak private var categoryScrollTabCollectionView: UICollectionView!
+
+    // MARK: - Computed Properties
+
+    //
+    private var targetContentsMaxIndex: Int {
+        return categoryList.count - 1
+    }
+
+    //
+    private var targetCollectionViewCellMaxIndex: Int {
+        return categoryList.count * 4 - targetContentsMaxIndex
+    }
+
+    //
+    private var targetCollectionViewCellMinIndex: Int {
+        return categoryList.count
+    }
 
     // MARK: - Override
 
@@ -36,12 +63,41 @@ final class CategoryScrollTabViewController: UIViewController {
         setInitialCategoryScrollTabPosition()
     }
 
+    // MARK: - Function
+
+    //
+    func moveToCategoryScrollTab(isIncrement: Bool = true) {
+
+        //
+        var targetIndex = isIncrement ? currentSelectIndex + 1 : currentSelectIndex - 1
+
+        //
+        if targetIndex > targetCollectionViewCellMaxIndex {
+            targetIndex = targetCollectionViewCellMaxIndex - targetContentsMaxIndex
+            currentSelectIndex = targetCollectionViewCellMaxIndex
+        }
+
+        //
+        if targetIndex < targetCollectionViewCellMinIndex {
+            targetIndex = targetCollectionViewCellMinIndex + targetContentsMaxIndex
+            currentSelectIndex = targetCollectionViewCellMinIndex
+        }
+
+        // 押下した場所のインデックス値を持っておく
+        currentSelectIndex = targetIndex
+        //print("現在のインデックス値:", currentSelectIndex)
+        
+        // 変数:currentSelectIndexを基準にして位置情報を更新する
+        updateCategoryScrollTabCollectionViewPosition(withAnimated: true)
+    }
+
     // MARK: - Private Function
 
     private func setupCategoryScrollTabCollectionView() {
         categoryScrollTabCollectionView.delegate = self
         categoryScrollTabCollectionView.dataSource = self
         categoryScrollTabCollectionView.registerCustomCell(CategoryScrollTabViewCell.self)
+        //categoryScrollTabCollectionView.isScrollEnabled = false
         categoryScrollTabCollectionView.showsHorizontalScrollIndicator = false
     }
 
@@ -49,7 +105,7 @@ final class CategoryScrollTabViewController: UIViewController {
 
         // 押下した場所のインデックス値を持っておくために、実際のタブ個数の2倍の値を設定する
         currentSelectIndex = self.categoryList.count * 2
-        //print("現在のインデックス値:", currentSelectIndex)
+        print("現在のインデックス値:", currentSelectIndex)
 
         // 変数:currentSelectIndexを基準にして位置情報を更新する
         updateCategoryScrollTabCollectionViewPosition(withAnimated: false)
@@ -70,13 +126,34 @@ final class CategoryScrollTabViewController: UIViewController {
         categoryScrollTabCollectionView.reloadData()
     }
 
-    // スクロールするタブ
+    // スクロールするタブの下にある下線の幅を文字の長さに合わせて設定する
     private func setUnderlineWidthFrom(categoryTitle: String) {
         let targetWidth = CategoryScrollTabViewCell.calculateCategoryUnderBarWidthBy(title: categoryTitle)
         selectedCatogoryUnderlineWidth.constant = targetWidth
         UIView.animate(withDuration: 0.36, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+
+    //
+    private func getCategoryScrollContentsDirection(selectedIndex: Int) -> UIPageViewController.NavigationDirection {
+        
+        //
+        if selectedIndex == targetCollectionViewCellMaxIndex - targetContentsMaxIndex && currentSelectIndex == targetCollectionViewCellMaxIndex {
+            return UIPageViewController.NavigationDirection.forward
+        }
+
+        //
+        if selectedIndex == targetCollectionViewCellMinIndex + targetContentsMaxIndex && currentSelectIndex == targetCollectionViewCellMinIndex {
+            return UIPageViewController.NavigationDirection.reverse
+        }
+
+        //
+        if currentSelectIndex - selectedIndex > 0 {
+            return UIPageViewController.NavigationDirection.reverse
+        } else {
+            return UIPageViewController.NavigationDirection.forward
+        }
     }
 }
 
@@ -104,12 +181,22 @@ extension CategoryScrollTabViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+        //
+        let targetDirection = getCategoryScrollContentsDirection(selectedIndex: indexPath.row)
+
         // 押下した場所のインデックス値を持っておく
         currentSelectIndex = indexPath.row
-        //print("現在のインデックス値:", currentSelectIndex)
-
+        print("現在のインデックス値:", currentSelectIndex)
+        
         // 変数:currentSelectIndexを基準にして位置情報を更新する
         updateCategoryScrollTabCollectionViewPosition(withAnimated: true)
+
+        //
+        self.delegate?.moveToCategoryScrollContents(
+            selectedCollectionViewIndex: currentSelectIndex,
+            targetDirection: targetDirection,
+            withAnimated: true
+        )
     }
 }
 
@@ -117,7 +204,7 @@ extension CategoryScrollTabViewController: UICollectionViewDataSource {
 
 extension CategoryScrollTabViewController: UICollectionViewDelegateFlowLayout {
 
-    // セルのサイズを設定する
+    // タブ用のセルにおける矩形サイズを設定する
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CategoryScrollTabViewCell.cellSize
     }
@@ -126,7 +213,8 @@ extension CategoryScrollTabViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UIScrollViewDelegate
 
 extension CategoryScrollTabViewController: UIScrollViewDelegate {
-    
+
+    //
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         // 表示したいセル要素のWidthを計算する
@@ -141,9 +229,12 @@ extension CategoryScrollTabViewController: UIScrollViewDelegate {
         }
     }
 
+    // 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        // スクロールが停止した際に見えているセルのインデックス値を格納して、真ん中にあるものを取得する
+        // 参考: https://stackoverflow.com/questions/18649920/uicollectionview-current-visible-cell-index
 
-        // スクロールが停止した際に見えているセルのインデックス値を格納する
         var visibleIndexPathList: [IndexPath] = []
         for cell in categoryScrollTabCollectionView.visibleCells {
             if let visibleIndexPath = categoryScrollTabCollectionView.indexPath(for: cell) {
@@ -151,10 +242,23 @@ extension CategoryScrollTabViewController: UIScrollViewDelegate {
                 //print("見えているセルのインデックス値:", visibleIndexPath)
             }
         }
-        currentSelectIndex = visibleIndexPathList[1].row
-        //print("現在のインデックス値:", currentSelectIndex)
+        let targetIndexPath = visibleIndexPathList[1]
+        
+        // ※この部分は厳密には不要ではあるがdelegeteで引き渡す必要があるので設定している
+        let targetDirection = getCategoryScrollContentsDirection(selectedIndex: targetIndexPath.row)
+
+        //
+        currentSelectIndex = targetIndexPath.row
+        print("現在のインデックス値:", currentSelectIndex)
 
         // 変数:currentSelectIndexを基準にして位置情報を更新する
         updateCategoryScrollTabCollectionViewPosition(withAnimated: true)
+
+        //
+        self.delegate?.moveToCategoryScrollContents(
+            selectedCollectionViewIndex: currentSelectIndex,
+            targetDirection: targetDirection,
+            withAnimated: false
+        )
     }
 }

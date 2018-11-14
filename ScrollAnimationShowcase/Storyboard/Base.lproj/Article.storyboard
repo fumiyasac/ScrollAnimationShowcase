@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Y2f-df-OLq"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="0ao-Rf-GAz" kind="embed" id="DDm-Dc-Np5"/>
+                                    <segue destination="0ao-Rf-GAz" kind="embed" identifier="CategoryScrollTabViewContainer" id="DDm-Dc-Np5"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8m-cf-olK">
@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="732" y="-271.664167916042"/>
         </scene>
-        <!--Scroll Contents View Controller-->
+        <!--Category Scroll Contents View Controller-->
         <scene sceneID="V3C-tp-umH">
             <objects>
-                <viewController storyboardIdentifier="ScrollContents" id="qDq-T9-4L2" customClass="ScrollContentsViewController" customModule="ScrollAnimationShowcase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryScrollContents" id="qDq-T9-4L2" customClass="CategoryScrollContentsViewController" customModule="ScrollAnimationShowcase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QDD-cz-yf9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
