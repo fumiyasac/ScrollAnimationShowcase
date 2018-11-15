@@ -23,6 +23,13 @@ class CategoryScrollTabViewController: UIViewController {
     // カテゴリーの一覧データ
     private let categoryList: [String] = ArticleCategoryMock.getArticleCategory()
 
+    // ボタン押下時の軽微な振動を追加する
+    private let buttonFeedbackGenerator: UIImpactFeedbackGenerator = {
+        let generator: UIImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        return generator
+    }()
+
     // 配置したセル幅の合計値
     private var allTabViewTotalWidth: CGFloat = 0.0
 
@@ -98,6 +105,9 @@ class CategoryScrollTabViewController: UIViewController {
 
         // 変数(currentSelectIndex)を基準にして位置情報を更新する
         updateCategoryScrollTabCollectionViewPosition(withAnimated: true)
+
+        // 「コツッ」とした感じの端末フィードバックを発火する
+        buttonFeedbackGenerator.impactOccurred()
     }
 
     // MARK: - Private Function
@@ -224,6 +234,9 @@ extension CategoryScrollTabViewController: UICollectionViewDataSource {
             targetDirection: targetDirection,
             withAnimated: true
         )
+
+        // 「コツッ」とした感じの端末フィードバックを発火する
+        buttonFeedbackGenerator.impactOccurred()
     }
 }
 
@@ -287,5 +300,8 @@ extension CategoryScrollTabViewController: UIScrollViewDelegate {
             targetDirection: targetDirection,
             withAnimated: false
         )
+
+        // 「コツッ」とした感じの端末フィードバックを発火する
+        buttonFeedbackGenerator.impactOccurred()
     }
 }
