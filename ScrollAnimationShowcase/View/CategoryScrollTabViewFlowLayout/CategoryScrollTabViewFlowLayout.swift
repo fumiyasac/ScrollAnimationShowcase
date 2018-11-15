@@ -23,6 +23,7 @@ final class CategoryScrollTabViewFlowLayout: UICollectionViewFlowLayout {
     private let horizontalTargetOffsetWidth: CGFloat = UIScreen.main.bounds.width - AppConstant.CATEGORY_CELL_WIDTH
     
     // UICollectionViewをスクロールした後の停止位置を返すためのメソッド
+    // MEMO: UICollectionViewのLayoutAttributeを調整して、中央に表示されるように調整している
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
 
         // 配置されているUICollectionViewを取得する

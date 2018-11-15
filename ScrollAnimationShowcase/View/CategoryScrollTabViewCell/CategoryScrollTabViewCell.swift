@@ -46,6 +46,7 @@ final class CategoryScrollTabViewCell: UICollectionViewCell {
 
     // MARK: - Function
 
+    // タブ表示用のセルに表示する内容を設定する
     func setCategory(name: String, isSelected: Bool = false) {
         categoryTitleLabel.text = name
         categoryTitleLabel.textColor = isSelected ? UIColor.init(code: "#ff6060") : UIColor.gray
