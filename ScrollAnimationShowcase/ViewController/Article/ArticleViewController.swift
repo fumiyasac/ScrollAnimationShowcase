@@ -30,8 +30,9 @@ class ArticleViewController: UIViewController {
         setupPageViewController()
     }
 
+    // Segueに設定したIdentifierから接続されたViewControllerを取得する
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         switch segue.identifier {
 
         // ContainerViewで接続されたViewController側に定義したプロトコルを適用する
@@ -72,7 +73,8 @@ class ArticleViewController: UIViewController {
         pageViewController!.setViewControllers([targetViewControllerLists[0]], direction: .forward, animated: false, completion: nil)
     }
 
-    //
+    // 配置されているタブ表示のUICollectionViewの位置を更新する
+    // MEMO: ContainerViewで配置しているViewControllerの親子関係を利用する
     private func updateCategoryScrollTabPosition(isIncrement: Bool) {
         for childVC in children {
             if let targetVC = childVC as? CategoryScrollTabViewController {
@@ -99,13 +101,19 @@ extension ArticleViewController: UIPageViewControllerDelegate {
         if let targetViewControllers = pageViewController.viewControllers {
             if let targetViewController = targetViewControllers.last {
 
-                //
+                // Case1: UIPageViewControllerで表示する画面のインデックス値が左スワイプで 0 → 最大インデックス値
                 if targetViewController.view.tag - currentCategoryIndex == -categoryList.count + 1 {
                     updateCategoryScrollTabPosition(isIncrement: true)
+
+                // Case2: UIPageViewControllerで表示する画面のインデックス値が右スワイプで 最大インデックス値 → 0
                 } else if targetViewController.view.tag - currentCategoryIndex == categoryList.count - 1 {
                     updateCategoryScrollTabPosition(isIncrement: false)
+
+                // Case3: UIPageViewControllerで表示する画面のインデックス値が +1
                 } else if targetViewController.view.tag - currentCategoryIndex > 0 {
                     updateCategoryScrollTabPosition(isIncrement: true)
+
+                // Case4: UIPageViewControllerで表示する画面のインデックス値が -1
                 } else if targetViewController.view.tag - currentCategoryIndex < 0 {
                     updateCategoryScrollTabPosition(isIncrement: false)
                 }
@@ -161,10 +169,11 @@ extension ArticleViewController: CategoryScrollTabDelegate {
     // タブ側のViewControllerで選択されたインデックス値とスクロール方向を元に表示する位置を調整する
     func moveToCategoryScrollContents(selectedCollectionViewIndex: Int, targetDirection: UIPageViewController.NavigationDirection, withAnimated: Bool) {
 
-        //
+        // UIPageViewControllerに設定した画面の表示対象インデックス値を設定する
+        // MEMO: タブ表示のUICollectionViewCellのインデックス値をカテゴリーの個数で割った剰余
         currentCategoryIndex = selectedCollectionViewIndex % categoryList.count
-        
-        //
+
+        // 表示対象インデックス値に該当する画面を表示する
         pageViewController!.setViewControllers([targetViewControllerLists[currentCategoryIndex]], direction: targetDirection, animated: withAnimated, completion: nil)
     }
 }
