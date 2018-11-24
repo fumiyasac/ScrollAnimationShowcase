@@ -85,7 +85,7 @@ extension CategoryScrollContentsViewController: UICollectionViewDelegateFlowLayo
     }
 
     // セル内のアイテム間の余白(margin)調整を行う
-    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let margin = CategoryScrollContentsViewCell.cellMargin
         return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }

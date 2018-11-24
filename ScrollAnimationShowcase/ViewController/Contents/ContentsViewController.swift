@@ -19,16 +19,16 @@ class ContentsViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBarTitle("サンプル記事詳細: サンプルを見て頂きありがとうございます!")
-        setupNavigationBarInitialState()
         setupContentsScrollView()
         setupContentsDetailHeaderView()
     }
-    
-    // MARK: - Private Function
 
-    private func setupNavigationBarInitialState() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
     }
+    
+    // MARK: - Private Function
 
     private func setupContentsDetailHeaderView() {
         contentsDetailHeaderView.setHeaderImage(UIImage.init(named: "sample"))

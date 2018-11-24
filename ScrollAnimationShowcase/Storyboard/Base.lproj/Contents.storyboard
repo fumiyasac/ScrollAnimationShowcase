@@ -26,7 +26,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxV-QV-wZu" customClass="ContentsDetailHeaderView" customModule="ScrollAnimationShowcase" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="JxV-QV-wZu" secondAttribute="height" multiplier="4:3" id="wgt-3l-0Ao"/>
                                                 </constraints>
@@ -104,10 +104,10 @@ UIScrollViewやUICollectionViewを活用したUI表現を実装するサンプ�
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYf-tA-JVi">
-                                                        <rect key="frame" x="82.5" y="126" width="210" height="40"/>
+                                                        <rect key="frame" x="67.5" y="126" width="240" height="40"/>
                                                         <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="210" id="8ot-fh-nVm"/>
+                                                            <constraint firstAttribute="width" constant="240" id="V6d-1i-ZAP"/>
                                                             <constraint firstAttribute="height" constant="40" id="bvf-Y8-8xq"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
@@ -269,10 +269,10 @@ Cg
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-xP-CI8">
-                                                        <rect key="frame" x="82.5" y="267" width="210" height="40"/>
+                                                        <rect key="frame" x="67.5" y="267" width="240" height="40"/>
                                                         <color key="backgroundColor" red="1" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="210" id="7cT-Sb-B1d"/>
+                                                            <constraint firstAttribute="width" constant="240" id="JLm-Ab-XDc"/>
                                                             <constraint firstAttribute="height" constant="40" id="avk-gT-6Ut"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
