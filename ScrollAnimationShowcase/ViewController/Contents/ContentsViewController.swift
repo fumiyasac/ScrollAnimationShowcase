@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  ContentsViewController.swift
 //  ScrollAnimationShowcase
 //
 //  Created by 酒井文也 on 2018/11/09.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class ContentsViewController: UIViewController {
+
+    // MARK: - Override
 
     override func viewDidLoad() {
         super.viewDidLoad()
