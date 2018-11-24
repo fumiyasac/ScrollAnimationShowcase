@@ -20,7 +20,6 @@ extension UIViewController {
         attributes[NSAttributedString.Key.font] = UIFont(name: "HiraKakuProN-W6", size: 14.0)
         attributes[NSAttributedString.Key.foregroundColor] = UIColor.white
 
-        self.navigationController!.navigationBar.tintColor = UIColor(code: "#333333")
         self.navigationController!.navigationBar.titleTextAttributes = attributes
 
         // タイトルを入れる

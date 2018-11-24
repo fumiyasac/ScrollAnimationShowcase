@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="rxt-7k-ET1" customClass="ArticleViewController" customModule="ScrollAnimationShowcase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PMN-ty-8oG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-c8-baT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Y2f-df-OLq"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8m-cf-olK">
-                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="555"/>
                                 <connections>
                                     <segue destination="KO3-pg-dZY" kind="embed" id="jUG-PG-OKK"/>
                                 </connections>
@@ -56,9 +56,10 @@
         <scene sceneID="KAY-0P-yMO">
             <objects>
                 <navigationController id="8fN-am-Fd4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b9H-XE-mNj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="b9H-XE-mNj">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="rxt-7k-ET1" kind="relationship" relationship="rootViewController" id="pTk-7n-nAp"/>

@@ -27,6 +27,9 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MEMO: InterfaceBuilderでNavigationBarの背景色を#ff6060 / Trunslucentをfalseとする
+        setupNavigationBarTitle("サンプル記事一覧")
+        removeBackButtonText()
         setupPageViewController()
     }
 
