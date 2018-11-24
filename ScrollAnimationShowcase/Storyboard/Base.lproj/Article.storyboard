@@ -115,6 +115,7 @@
                             <constraint firstItem="kcJ-co-t71" firstAttribute="bottom" secondItem="QXg-qv-Ez5" secondAttribute="bottomMargin" id="gHs-9l-uYj"/>
                             <constraint firstItem="Gfs-DM-fGq" firstAttribute="top" secondItem="QXg-qv-Ez5" secondAttribute="top" id="skt-Fj-af0"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="S4I-Fv-t51"/>
                     </view>
                     <connections>
                         <outlet property="categoryScrollTabCollectionView" destination="Gfs-DM-fGq" id="Txy-ke-iOS"/>
@@ -133,14 +134,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLw-On-MHp">
-                                <rect key="frame" x="10" y="36" width="355" height="14"/>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IWi-yp-OQ8">
-                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pBI-Ru-7d0">
                                     <size key="itemSize" width="50" height="50"/>
@@ -150,22 +145,39 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuc-m6-whH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在位置にあるカテゴリーが表示されます。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLw-On-MHp">
+                                        <rect key="frame" x="68" y="18" width="239" height="12"/>
+                                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="9zf-Q0-k74"/>
+                                    <constraint firstItem="DLw-On-MHp" firstAttribute="centerX" secondItem="kuc-m6-whH" secondAttribute="centerX" id="VGN-SB-UNg"/>
+                                    <constraint firstItem="DLw-On-MHp" firstAttribute="centerY" secondItem="kuc-m6-whH" secondAttribute="centerY" id="mxX-Uj-8zY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DLw-On-MHp" firstAttribute="top" secondItem="Whe-cw-ay2" secondAttribute="top" constant="16" id="0My-i5-aMe"/>
                             <constraint firstItem="IWi-yp-OQ8" firstAttribute="trailing" secondItem="Whe-cw-ay2" secondAttribute="trailing" id="4Zj-pz-ClB"/>
-                            <constraint firstItem="IWi-yp-OQ8" firstAttribute="top" secondItem="DLw-On-MHp" secondAttribute="bottom" constant="16" id="7x4-9w-nsN"/>
+                            <constraint firstItem="IWi-yp-OQ8" firstAttribute="top" secondItem="kuc-m6-whH" secondAttribute="bottom" id="E13-SS-aWd"/>
                             <constraint firstItem="IWi-yp-OQ8" firstAttribute="leading" secondItem="Whe-cw-ay2" secondAttribute="leading" id="RHF-yg-cl8"/>
                             <constraint firstItem="IWi-yp-OQ8" firstAttribute="bottom" secondItem="Whe-cw-ay2" secondAttribute="bottom" id="axI-2Z-j4O"/>
-                            <constraint firstItem="Whe-cw-ay2" firstAttribute="trailing" secondItem="DLw-On-MHp" secondAttribute="trailing" constant="10" id="rPv-ud-kwh"/>
-                            <constraint firstItem="DLw-On-MHp" firstAttribute="leading" secondItem="Whe-cw-ay2" secondAttribute="leading" constant="10" id="yo3-nU-yoA"/>
+                            <constraint firstItem="kuc-m6-whH" firstAttribute="top" secondItem="QDD-cz-yf9" secondAttribute="top" id="hol-1g-tdF"/>
+                            <constraint firstItem="kuc-m6-whH" firstAttribute="trailing" secondItem="Whe-cw-ay2" secondAttribute="trailing" id="qOw-49-bwx"/>
+                            <constraint firstItem="kuc-m6-whH" firstAttribute="leading" secondItem="Whe-cw-ay2" secondAttribute="leading" id="qgH-tA-gYi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Whe-cw-ay2"/>
                     </view>
                     <connections>
                         <outlet property="categoryScrollContentsCollectionView" destination="IWi-yp-OQ8" id="2B2-IC-T7U"/>
-                        <outlet property="sampleTitleLabel" destination="DLw-On-MHp" id="wEM-cB-m1f"/>
+                        <outlet property="desctiptionLabel" destination="DLw-On-MHp" id="RY8-03-5zL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4d-jY-EoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

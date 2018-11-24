@@ -54,7 +54,7 @@ class ArticleViewController: UIViewController {
             let sb = UIStoryboard(name: "Article", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "CategoryScrollContents") as! CategoryScrollContentsViewController
             vc.view.tag = index
-            vc.setTitle(text: categoryName)
+            vc.setDescription(text: categoryName)
             targetViewControllerLists.append(vc)
         }
 

@@ -13,14 +13,92 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryScrollContentsViewCell" customModule="ScrollAnimationShowcase" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="178"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="178"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yl6-dk-Bzg">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="178"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvF-ko-vRK">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="178"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCr-zX-BGU">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="112.5"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WCr-zX-BGU" secondAttribute="height" multiplier="4:3" id="YUo-rf-P6O"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトルがここに表示" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfE-v1-Aq6">
+                                <rect key="frame" x="8" y="88.5" width="134" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ljx-xE-XiJ">
+                                <rect key="frame" x="8" y="116.5" width="134" height="57.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キャッチコピー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sm-od-mqv">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="19"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ3-Qj-27h">
+                                        <rect key="frame" x="0.0" y="19" width="134" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018.12.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vh-Mk-1wF">
+                                        <rect key="frame" x="0.0" y="38.5" width="134" height="19"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FvF-ko-vRK" firstAttribute="leading" secondItem="Yl6-dk-Bzg" secondAttribute="leading" id="1J8-Es-zp0"/>
+                            <constraint firstAttribute="trailing" secondItem="FvF-ko-vRK" secondAttribute="trailing" id="5Iu-38-02W"/>
+                            <constraint firstItem="Ljx-xE-XiJ" firstAttribute="top" secondItem="WCr-zX-BGU" secondAttribute="bottom" constant="4" id="7vh-oi-cQN"/>
+                            <constraint firstAttribute="trailing" secondItem="OfE-v1-Aq6" secondAttribute="trailing" constant="8" id="EcB-mH-oio"/>
+                            <constraint firstItem="OfE-v1-Aq6" firstAttribute="leading" secondItem="Yl6-dk-Bzg" secondAttribute="leading" constant="8" id="Epw-l8-4kc"/>
+                            <constraint firstAttribute="bottom" secondItem="Ljx-xE-XiJ" secondAttribute="bottom" constant="4" id="Pre-Gf-Dp3"/>
+                            <constraint firstItem="Ljx-xE-XiJ" firstAttribute="leading" secondItem="Yl6-dk-Bzg" secondAttribute="leading" constant="8" id="R21-W5-isz"/>
+                            <constraint firstAttribute="trailing" secondItem="WCr-zX-BGU" secondAttribute="trailing" id="RAT-mM-eN4"/>
+                            <constraint firstAttribute="bottom" secondItem="FvF-ko-vRK" secondAttribute="bottom" id="WJ4-0j-Lzc"/>
+                            <constraint firstItem="WCr-zX-BGU" firstAttribute="top" secondItem="Yl6-dk-Bzg" secondAttribute="top" id="bab-AI-1PQ"/>
+                            <constraint firstItem="WCr-zX-BGU" firstAttribute="bottom" secondItem="OfE-v1-Aq6" secondAttribute="bottom" constant="12" id="j86-jA-2DH"/>
+                            <constraint firstItem="FvF-ko-vRK" firstAttribute="top" secondItem="Yl6-dk-Bzg" secondAttribute="top" id="nxq-aa-dmU"/>
+                            <constraint firstAttribute="trailing" secondItem="Ljx-xE-XiJ" secondAttribute="trailing" constant="8" id="rvA-dH-ybo"/>
+                            <constraint firstItem="WCr-zX-BGU" firstAttribute="leading" secondItem="Yl6-dk-Bzg" secondAttribute="leading" id="zSF-ob-PLw"/>
+                        </constraints>
+                    </view>
+                </subviews>
             </view>
-            <color key="backgroundColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Yl6-dk-Bzg" secondAttribute="trailing" id="FqX-KP-vdT"/>
+                <constraint firstAttribute="bottom" secondItem="Yl6-dk-Bzg" secondAttribute="bottom" id="b6v-vk-IJA"/>
+                <constraint firstItem="Yl6-dk-Bzg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="clg-Ir-MXu"/>
+                <constraint firstItem="Yl6-dk-Bzg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jf5-48-fca"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="EKh-SO-DJI"/>
+            <connections>
+                <outlet property="catchcopyLabel" destination="7sm-od-mqv" id="Ojp-iK-rzc"/>
+                <outlet property="categoryLabel" destination="KQ3-Qj-27h" id="AlJ-0h-siA"/>
+                <outlet property="dateLabel" destination="6vh-Mk-1wF" id="xoK-wg-vqG"/>
+                <outlet property="thumbnailImageView" destination="WCr-zX-BGU" id="q6h-9E-Jr6"/>
+                <outlet property="titleLabel" destination="OfE-v1-Aq6" id="xGO-8s-3VI"/>
+            </connections>
+            <point key="canvasLocation" x="52.799999999999997" y="47.676161919040482"/>
         </collectionViewCell>
     </objects>
 </document>

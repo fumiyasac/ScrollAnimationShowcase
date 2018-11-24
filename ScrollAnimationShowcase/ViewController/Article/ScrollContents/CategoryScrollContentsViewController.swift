@@ -12,8 +12,7 @@ class CategoryScrollContentsViewController: UIViewController {
 
     @IBOutlet weak private var categoryScrollContentsCollectionView: UICollectionView!
 
-    // MEMO: 後に実際のものに差し替える
-    @IBOutlet weak private var sampleTitleLabel: UILabel!
+    @IBOutlet weak private var desctiptionLabel: UILabel!
 
     // MARK: - Override
 
@@ -25,8 +24,8 @@ class CategoryScrollContentsViewController: UIViewController {
 
     // MARK: - Function
 
-    func setTitle(text: String) {
-        sampleTitleLabel.text = "現在表示しているIndex値：\(text)"
+    func setDescription(text: String) {
+        desctiptionLabel.text = "現在はカテゴリー「\(text)」です😄"
     }
 
     // MARK: - Private Function
@@ -48,17 +47,44 @@ extension CategoryScrollContentsViewController: UICollectionViewDataSource {
 
     // 配置するセルの個数を設定する
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 18
     }
 
     // 配置するセルの表示内容を設定する
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCustomCell(with: CategoryScrollContentsViewCell.self, indexPath: indexPath)
+        cell.setCellDecoration()
         return cell
     }
 
     // セル押下時の処理内容を記載する
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension CategoryScrollContentsViewController: UICollectionViewDelegateFlowLayout {
+
+    // セルのサイズを設定する
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CategoryScrollContentsViewCell.getCellSize()
+    }
+
+    // セルの垂直方向の余白(margin)を設定する
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return CategoryScrollContentsViewCell.cellMargin
+    }
+
+    // セルの水平方向の余白(margin)を設定する
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CategoryScrollContentsViewCell.cellMargin
+    }
+
+    // セル内のアイテム間の余白(margin)調整を行う
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let margin = CategoryScrollContentsViewCell.cellMargin
+        return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
 }
