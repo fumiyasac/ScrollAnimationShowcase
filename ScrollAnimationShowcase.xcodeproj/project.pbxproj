@@ -31,6 +31,7 @@
 		DE1C6EA22199DDE700BAA03C /* ArticleCategoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6EA12199DDE700BAA03C /* ArticleCategoryMock.swift */; };
 		DE1C6EA6219EFE7D00BAA03C /* CategoryScrollContentsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C6EA4219EFE7C00BAA03C /* CategoryScrollContentsViewCell.swift */; };
 		DE1C6EA7219EFE7D00BAA03C /* CategoryScrollContentsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1C6EA5219EFE7C00BAA03C /* CategoryScrollContentsViewCell.xib */; };
+		DE2553A621A9434400D9A3C7 /* ContentsDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2553A521A9434400D9A3C7 /* ContentsDetailHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		DE1C6EA12199DDE700BAA03C /* ArticleCategoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCategoryMock.swift; sourceTree = "<group>"; };
 		DE1C6EA4219EFE7C00BAA03C /* CategoryScrollContentsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScrollContentsViewCell.swift; sourceTree = "<group>"; };
 		DE1C6EA5219EFE7C00BAA03C /* CategoryScrollContentsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryScrollContentsViewCell.xib; sourceTree = "<group>"; };
+		DE2553A521A9434400D9A3C7 /* ContentsDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsDetailHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				DE1C6E8121965FFA00BAA03C /* CustomViewBase.swift */,
+				DE2553A421A942F900D9A3C7 /* ContentsDetailHeaderView */,
 				DE1C6EA3219EFA8900BAA03C /* CategoryScrollContentsViewCell */,
 				DE1C6E902196759000BAA03C /* CategoryScrollTabViewCell */,
 				DE1C6E9A2196C7C100BAA03C /* CategoryScrollTabViewFlowLayout */,
@@ -334,6 +337,14 @@
 				DE1C6EA5219EFE7C00BAA03C /* CategoryScrollContentsViewCell.xib */,
 			);
 			path = CategoryScrollContentsViewCell;
+			sourceTree = "<group>";
+		};
+		DE2553A421A942F900D9A3C7 /* ContentsDetailHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				DE2553A521A9434400D9A3C7 /* ContentsDetailHeaderView.swift */,
+			);
+			path = ContentsDetailHeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,6 +493,7 @@
 				DE1C6EA02199D4F800BAA03C /* CategoryScrollContentsViewController.swift in Sources */,
 				DE1C6E8F2196721F00BAA03C /* CategoryScrollTabViewController.swift in Sources */,
 				DE1C6E7E219657A300BAA03C /* UICollectionViewExtension.swift in Sources */,
+				DE2553A621A9434400D9A3C7 /* ContentsDetailHeaderView.swift in Sources */,
 				DE1C6E9521967F9800BAA03C /* CategoryScrollTabViewCell.swift in Sources */,
 				DE1C6E992196C79300BAA03C /* CategoryScrollTabViewFlowLayout.swift in Sources */,
 				DE1C6E7C2196573C00BAA03C /* NSObjectProtocolExtension.swift in Sources */,

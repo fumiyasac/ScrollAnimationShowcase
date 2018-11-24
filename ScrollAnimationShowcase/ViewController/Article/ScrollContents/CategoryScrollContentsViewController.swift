@@ -59,7 +59,9 @@ extension CategoryScrollContentsViewController: UICollectionViewDataSource {
 
     // セル押下時の処理内容を記載する
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let sb = UIStoryboard(name: "Contents", bundle: nil)
+        let vc = sb.instantiateInitialViewController() as! ContentsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

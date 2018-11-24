@@ -30,6 +30,19 @@ class CategoryScrollTabViewController: UIViewController {
         return generator
     }()
 
+    // MEMO: UICollectionViewの一番最初のセル表示位置に関する設定
+    // 参考: https://www.101010.fun/entry/swift-once-exec
+    private lazy var setInitialCategoryScrollTabPosition: (() -> ())? = {
+
+        // 押下した場所のインデックス値を持っておくために、実際のタブ個数の2倍の値を設定する
+        currentSelectIndex = self.categoryList.count * 2
+        //print("初期表示時の中央インデックス値:", currentSelectIndex)
+
+        // 変数(currentSelectIndex)を基準にして位置情報を更新する
+        updateCategoryScrollTabCollectionViewPosition(withAnimated: false)
+        return nil
+    }()
+
     // 配置したセル幅の合計値
     private var allTabViewTotalWidth: CGFloat = 0.0
 
@@ -75,7 +88,8 @@ class CategoryScrollTabViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        setInitialCategoryScrollTabPosition()
+        // MEMO: この部分は一番最初に起動した時だけ発火するようにする
+        setInitialCategoryScrollTabPosition?()
     }
 
     // MARK: - Function
@@ -121,17 +135,6 @@ class CategoryScrollTabViewController: UIViewController {
 
         // MEMO: タブ内のスクロール移動を許可する場合はtrueにし、許可しない場合はfalseとする
         categoryScrollTabCollectionView.isScrollEnabled = true
-    }
-
-    // UICollectionViewの一番最初のセル表示位置に関する設定
-    private func setInitialCategoryScrollTabPosition() {
-
-        // 押下した場所のインデックス値を持っておくために、実際のタブ個数の2倍の値を設定する
-        currentSelectIndex = self.categoryList.count * 2
-        //print("初期表示時の中央インデックス値:", currentSelectIndex)
-
-        // 変数(currentSelectIndex)を基準にして位置情報を更新する
-        updateCategoryScrollTabCollectionViewPosition(withAnimated: false)
     }
 
     // 選択もしくはスクロールが止まるであろう位置にあるセルのインデックス値を元にUICollectionViewの位置を更新する
