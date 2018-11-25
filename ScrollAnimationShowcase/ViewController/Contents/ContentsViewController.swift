@@ -22,6 +22,20 @@ class ContentsViewController: UIViewController {
         setupContentsScrollView()
         setupContentsDetailHeaderView()
     }
+
+    // MARK: - @IBActions
+
+    @IBAction func openSampleCodeLink(_ sender: Any) {
+        if let url = URL(string: "https://github.com/fumiyasac/ScrollAnimationShowcase") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+ 
+    @IBAction func openDigitalBookLink(_ sender: Any) {
+        if let url = URL(string: "https://booth.pm/ja/items/1021745") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
     
     // MARK: - Private Function
 

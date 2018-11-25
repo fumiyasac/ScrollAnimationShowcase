@@ -114,6 +114,9 @@ UIScrollViewやUICollectionViewを活用したUI表現を実装するサンプ�
                                                         <state key="normal" title="このサンプルコードを表示する">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="openSampleCodeLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rrz-kG-atf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,6 +282,9 @@ Cg
                                                         <state key="normal" title="Boothで電子版を確認する">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="openDigitalBookLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="521-9e-PuA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
