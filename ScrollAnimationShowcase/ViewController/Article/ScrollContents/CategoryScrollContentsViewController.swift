@@ -10,8 +10,13 @@ import UIKit
 
 class CategoryScrollContentsViewController: UIViewController {
 
-    @IBOutlet weak private var categoryScrollContentsCollectionView: UICollectionView!
+    private var articlesByCategoryId: [ArticleEntity]! {
+        didSet {
+            self.categoryScrollContentsCollectionView.reloadData()
+        }
+    }
 
+    @IBOutlet weak private var categoryScrollContentsCollectionView: UICollectionView!
     @IBOutlet weak private var desctiptionLabel: UILabel!
 
     // MARK: - Override
@@ -23,6 +28,10 @@ class CategoryScrollContentsViewController: UIViewController {
     }
 
     // MARK: - Function
+
+    func setArticlesByCategoryId(articles: [ArticleEntity]) {
+        articlesByCategoryId = articles
+    }
 
     func setDescription(text: String) {
         desctiptionLabel.text = "現在はカテゴリー「\(text)」です😄"
@@ -47,12 +56,13 @@ extension CategoryScrollContentsViewController: UICollectionViewDataSource {
 
     // 配置するセルの個数を設定する
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
+        return articlesByCategoryId.count
     }
 
     // 配置するセルの表示内容を設定する
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCustomCell(with: CategoryScrollContentsViewCell.self, indexPath: indexPath)
+        cell.setCellData(articlesByCategoryId[indexPath.row])
         cell.setCellDecoration()
         return cell
     }

@@ -11,7 +11,7 @@ import UIKit
 class ArticleViewController: UIViewController {
 
     // カテゴリーの一覧データ
-    private let categoryList: [String] = ArticleCategoryMock.getArticleCategory()
+    private let categoryList: [String] = ArticleMock.getArticleCategories()
 
     // 現在表示しているViewControllerのタグ番号
     private var currentCategoryIndex: Int = 0
@@ -58,6 +58,7 @@ class ArticleViewController: UIViewController {
             let vc = sb.instantiateViewController(withIdentifier: "CategoryScrollContents") as! CategoryScrollContentsViewController
             vc.view.tag = index
             vc.setDescription(text: categoryName)
+            vc.setArticlesByCategoryId(articles: ArticleMock.getArticlesBy(categoryId: index))
             targetViewControllerLists.append(vc)
         }
 

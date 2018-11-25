@@ -21,7 +21,7 @@ class CategoryScrollTabViewController: UIViewController {
     weak var delegate: CategoryScrollTabDelegate?
 
     // カテゴリーの一覧データ
-    private let categoryList: [String] = ArticleCategoryMock.getArticleCategory()
+    private let categoryList: [String] = ArticleMock.getArticleCategories()
 
     // ボタン押下時の軽微な振動を追加する
     private let buttonFeedbackGenerator: UIImpactFeedbackGenerator = {

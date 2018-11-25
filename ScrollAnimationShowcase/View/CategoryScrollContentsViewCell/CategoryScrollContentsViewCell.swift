@@ -39,7 +39,15 @@ final class CategoryScrollContentsViewCell: UICollectionViewCell {
     }
 
     // MARK: - Function
-    
+
+    func setCellData(_ article: ArticleEntity) {
+        thumbnailImageView.image = article.imageFile
+        titleLabel.text = article.title
+        catchcopyLabel.text = article.catchcopy
+        categoryLabel.text = article.category
+        dateLabel.text = article.dateString
+    }
+
     func setCellDecoration() {
 
         // UICollectionViewのcontentViewプロパティには罫線と角丸に関する設定を行う
