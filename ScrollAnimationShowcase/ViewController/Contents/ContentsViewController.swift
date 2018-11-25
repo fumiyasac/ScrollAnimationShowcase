@@ -18,14 +18,9 @@ class ContentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNavigationBarTitle("サンプル記事詳細: サンプルを見て頂きありがとうございます!")
+        setupNavigationBarTitle("サンプル記事詳細")
         setupContentsScrollView()
         setupContentsDetailHeaderView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
     }
     
     // MARK: - Private Function
@@ -35,6 +30,11 @@ class ContentsViewController: UIViewController {
     }
 
     private func setupContentsScrollView() {
+
+        // NavigationBar分のスクロール位置がずれてしまうのでその考慮を行う
+        if #available(iOS 11.0, *) {
+            contentsScrollView.contentInsetAdjustmentBehavior = .never
+        }
         contentsScrollView.delegate = self
     }
 }
