@@ -16,7 +16,7 @@ __1. 画面キャプチャ:__
 
 __2. Storyboardの構成:__
 
-![capture.jpg](https://qiita-image-store.s3.amazonaws.com/0/17400/aa4c7d31-6d45-41db-bb1f-4d2a774a972f.jpeg)
+![infinite_tab_storyboard.png](https://qiita-image-store.s3.amazonaws.com/0/17400/d586b288-9db3-21c5-d7f4-c9d821c7cbdb.png)
 
 __3. 該当箇所の全体的なポイントをまとめた概略図:__
 
