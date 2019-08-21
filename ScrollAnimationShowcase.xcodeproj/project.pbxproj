@@ -418,13 +418,16 @@
 				TargetAttributes = {
 					DE1C6E3B21959F7900BAA03C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 					DE1C6E4F21959F8100BAA03C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = DE1C6E3B21959F7900BAA03C;
 					};
 					DE1C6E5A21959F8100BAA03C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = DE1C6E3B21959F7900BAA03C;
 					};
 				};
@@ -693,7 +696,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.just1factory.ScrollAnimationShowcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -711,7 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.just1factory.ScrollAnimationShowcase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -731,7 +734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.just1factory.ScrollAnimationShowcaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrollAnimationShowcase.app/ScrollAnimationShowcase";
 			};
@@ -752,7 +755,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.just1factory.ScrollAnimationShowcaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScrollAnimationShowcase.app/ScrollAnimationShowcase";
 			};
@@ -772,7 +775,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.just1factory.ScrollAnimationShowcaseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ScrollAnimationShowcase;
 			};
@@ -792,7 +795,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.just1factory.ScrollAnimationShowcaseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ScrollAnimationShowcase;
 			};
