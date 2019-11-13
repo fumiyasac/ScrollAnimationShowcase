@@ -113,6 +113,13 @@ class CategoryScrollTabViewController: UIViewController {
             currentSelectIndex = targetCollectionViewCellMinIndex
         }
 
+        // MEMO: タブがスクロールされている状態でUIPageViewControllerがスワイプされた場合の考慮
+        // → スクロール中である場合には強制的に慣性スクロールを停止させる
+        let isScrolling = (categoryScrollTabCollectionView.isDragging || categoryScrollTabCollectionView.isDecelerating)
+        if isScrolling {
+            categoryScrollTabCollectionView.setContentOffset(categoryScrollTabCollectionView.contentOffset, animated: true)
+        }
+
         // 押下した場所のインデックス値を持っておく
         currentSelectIndex = targetIndex
         //print("コンテンツ表示側のインデックスを元にした現在のインデックス値:", currentSelectIndex)

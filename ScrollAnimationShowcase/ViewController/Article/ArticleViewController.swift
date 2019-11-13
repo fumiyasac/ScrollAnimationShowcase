@@ -178,6 +178,11 @@ extension ArticleViewController: CategoryScrollTabDelegate {
         currentCategoryIndex = selectedCollectionViewIndex % categoryList.count
 
         // 表示対象インデックス値に該当する画面を表示する
-        pageViewController!.setViewControllers([targetViewControllerLists[currentCategoryIndex]], direction: targetDirection, animated: withAnimated, completion: nil)
+        // MEMO: メインスレッドで実行するようにしてクラッシュを防止する対策を施している
+        DispatchQueue.main.async {
+            if let targetPageViewController = self.pageViewController {
+                targetPageViewController.setViewControllers([self.targetViewControllerLists[self.currentCategoryIndex]], direction: targetDirection, animated: withAnimated, completion: nil)
+            }
+        }
     }
 }
