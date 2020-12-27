@@ -28,8 +28,14 @@ extension UIViewController {
 
     // 戻るボタンの「戻る」テキストを削除した状態にするメソッド
     public func removeBackButtonText() {
-        let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController!.navigationBar.tintColor = UIColor.white
-        self.navigationItem.backBarButtonItem = backButtonItem
+        if #available(iOS 14.0, *) {
+            self.navigationItem.backButtonDisplayMode = .minimal
+            self.navigationItem.backButtonTitle = self.navigationItem.title
+        } else {
+            // 戻るボタンの文言を消す
+            let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationItem.backBarButtonItem = backButtonItem
+        }
     }
 }
