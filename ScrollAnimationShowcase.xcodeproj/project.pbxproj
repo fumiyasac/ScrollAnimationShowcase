@@ -139,11 +139,8 @@
 				DE1C6E3F21959F7900BAA03C /* AppDelegate.swift */,
 				DE1C6E4621959F8000BAA03C /* Assets.xcassets */,
 				DE1C6E6E2195A46500BAA03C /* Entity */,
-				DE1C6E6F2195A46D00BAA03C /* Enum */,
 				DE1C6E722195A4D100BAA03C /* Extension */,
-				DE1C6E712195A47B00BAA03C /* Factory */,
 				DE1C6E732195A4E100BAA03C /* Modules */,
-				DE1C6E742195A4E900BAA03C /* Protocol */,
 				DE1C6E702195A47200BAA03C /* Storyboard */,
 				DE1C6E9B21995EEC00BAA03C /* TestData */,
 				DE1C6E752195A50200BAA03C /* View */,
@@ -178,13 +175,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		DE1C6E6F2195A46D00BAA03C /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
 		DE1C6E702195A47200BAA03C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,13 +183,6 @@
 				DE1C6E4321959F7900BAA03C /* Contents.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		DE1C6E712195A47B00BAA03C /* Factory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Factory;
 			sourceTree = "<group>";
 		};
 		DE1C6E722195A4D100BAA03C /* Extension */ = {
@@ -220,13 +203,6 @@
 				DE1C6E9121967F3900BAA03C /* AppConstant.swift */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		DE1C6E742195A4E900BAA03C /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		DE1C6E752195A50200BAA03C /* View */ = {
